@@ -1,0 +1,664 @@
+{
+  "paragraphs": [
+    {
+      "text": "%pyspark\n\n# More documentation on DataFrames can be found at http://spark.apache.org/docs/2.0.2/api/python/pyspark.sql.html\n\n# Read in a CSV into a DataFrame and display it\ndf \u003d sqlc.read.format(\"csv\").load(\"/data-sets/new-cs-training3.csv\")\ndf.show() # This is similar to #take, except that prints the results\n\ndf.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 30, 2017 12:45:19 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------+-------------+--------------------+---+--------------------+-----------+-------------+--------------------+--------------------+--------------------+--------------------+------------------+---------------+-------------+---------+\n|        _c0|          _c1|                 _c2|_c3|                 _c4|        _c5|          _c6|                 _c7|                 _c8|                 _c9|                _c10|              _c11|           _c12|         _c13|     _c14|\n+-----------+-------------+--------------------+---+--------------------+-----------+-------------+--------------------+--------------------+--------------------+--------------------+------------------+---------------+-------------+---------+\n|account_num|A_bad_wo_ind8|RevolvingUtilizat...|age|NumberOfTime30-59...|  DebtRatio|MonthlyIncome|NumberOfOpenCredi...|NumberOfTimes90Da...|NumberRealEstateL...|NumberOfTime60-89...|NumberOfDependents|a0_PROBE_SM_CS2|bns_delq_days|prod_type|\n|          1|            1|         0.766126609| 45|                   2|0.802982129|         9120|                  13|                   0|                   6|                   0|                 2|            714|           22|      MST|\n|          2|            0|         0.957151019| 40|                   0|0.121876201|         2600|                   4|                   0|                   0|                   0|                 1|            529|           29|      AMX|\n|          3|            0|          0.65818014| 38|                   1|0.085113375|         3042|                   2|                   1|                   0|                   0|                 0|            445|           22|      AMX|\n|          4|            0|         0.233809776| 30|                   0|0.036049682|         3300|                   5|                   0|                   0|                   0|                 0|            561|           29|      VSA|\n|          5|            0|           0.9072394| 49|                   1|0.024925695|        63588|                   7|                   0|                   1|                   0|                 0|            544|           22|      AMX|\n|          6|            0|         0.213178682| 74|                   0|0.375606969|         3500|                   3|                   0|                   1|                   0|                 1|            526|           29|      VSA|\n|          7|            0|         0.305682465| 57|                   0|       5710|       -99999|                   8|                   0|                   3|                   0|                 0|            587|           29|      MST|\n|          8|            0|         0.754463648| 39|                   0|0.209940017|         3500|                   8|                   0|                   0|                   0|                 0|            536|           29|      MST|\n|          9|            0|         0.116950644| 27|                   0|         46|       -99999|                   2|                   0|                   0|                   0|            -99999|              0|           29|      MST|\n|         10|            0|         0.189169052| 57|                   0|0.606290901|        23684|                   9|                   0|                   4|                   0|                 2|            565|           29|      AMX|\n|         11|            0|         0.644225962| 30|                   0| 0.30947621|         2500|                   5|                   0|                   0|                   0|                 0|            489|           29|      VSA|\n|         12|            0|          0.01879812| 51|                   0| 0.53152876|         6501|                   7|                null|                   2|                   0|                 2|            518|           29|      VSA|\n|         13|            0|         0.010351857| 46|                   0|0.298354075|        12454|                  13|                   0|                   2|                   0|                 2|              0|           29|      MST|\n|         14|            1|         0.964672555| 40|                   3|0.382964747|        13700|                   9|                   3|                   1|                   1|                 2|            592|           89|      AMX|\n|         15|            0|         0.019656581| 76|                   0|        477|            0|                   6|                   0|                   1|                   0|                 0|            524|           29|      MST|\n|         16|            0|         0.548458062| 64|                   0|0.209891754|        11362|                   7|                   0|                   1|                   0|                 2|            632|           29|      MST|\n|         17|            0|         0.061086118| 78|                   0|       2058|       -99999|                  10|                   0|                   2|                   0|                 0|            468|           29|      AMX|\n|         18|            0|         0.166284079| 53|                   0| 0.18827406|         8800|                   7|                   0|                   0|                   0|                 0|            530|           29|      MST|\n|         19|            0|         0.221812771| 43|                   0|0.527887839|         3280|                   7|                   0|                   1|                   0|                 2|            566|           29|      MST|\n+-----------+-------------+--------------------+---+--------------------+-----------+-------------+--------------------+--------------------+--------------------+--------------------+------------------+---------------+-------------+---------+\nonly showing top 20 rows\n\nroot\n |-- _c0: string (nullable \u003d true)\n |-- _c1: string (nullable \u003d true)\n |-- _c2: string (nullable \u003d true)\n |-- _c3: string (nullable \u003d true)\n |-- _c4: string (nullable \u003d true)\n |-- _c5: string (nullable \u003d true)\n |-- _c6: string (nullable \u003d true)\n |-- _c7: string (nullable \u003d true)\n |-- _c8: string (nullable \u003d true)\n |-- _c9: string (nullable \u003d true)\n |-- _c10: string (nullable \u003d true)\n |-- _c11: string (nullable \u003d true)\n |-- _c12: string (nullable \u003d true)\n |-- _c13: string (nullable \u003d true)\n |-- _c14: string (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.17.0.2:4040/jobs/job?id\u003d23",
+            "http://172.17.0.2:4040/jobs/job?id\u003d24"
+          ],
+          "interpreterSettingId": "2CC448YCE"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1490729309941_257951383",
+      "id": "20170328-192829_344764408",
+      "dateCreated": "Mar 28, 2017 7:28:29 PM",
+      "dateStarted": "Mar 30, 2017 12:45:19 AM",
+      "dateFinished": "Mar 30, 2017 12:45:26 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Read in a CSV into a DataFrame and display it\ndf \u003d sqlc.read.format(\"csv\").option(\"inferSchema\", True).option(\"header\", True).load(\"/data-sets/new-cs-training3.csv\")\ndf.show()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 30, 2017 12:46:10 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------+-------------+------------------------------------+---+------------------------------------+-----------+-------------+-------------------------------+-----------------------+----------------------------+------------------------------------+------------------+---------------+-------------+---------+\n|account_num|A_bad_wo_ind8|RevolvingUtilizationOfUnsecuredLines|age|NumberOfTime30-59DaysPastDueNotWorse|  DebtRatio|MonthlyIncome|NumberOfOpenCreditLinesAndLoans|NumberOfTimes90DaysLate|NumberRealEstateLoansOrLines|NumberOfTime60-89DaysPastDueNotWorse|NumberOfDependents|a0_PROBE_SM_CS2|bns_delq_days|prod_type|\n+-----------+-------------+------------------------------------+---+------------------------------------+-----------+-------------+-------------------------------+-----------------------+----------------------------+------------------------------------+------------------+---------------+-------------+---------+\n|          1|            1|                         0.766126609| 45|                                   2|0.802982129|         9120|                             13|                      0|                           6|                                   0|                 2|            714|           22|      MST|\n|          2|            0|                         0.957151019| 40|                                   0|0.121876201|         2600|                              4|                      0|                           0|                                   0|                 1|            529|           29|      AMX|\n|          3|            0|                          0.65818014| 38|                                   1|0.085113375|         3042|                              2|                      1|                           0|                                   0|                 0|            445|           22|      AMX|\n|          4|            0|                         0.233809776| 30|                                   0|0.036049682|         3300|                              5|                      0|                           0|                                   0|                 0|            561|           29|      VSA|\n|          5|            0|                           0.9072394| 49|                                   1|0.024925695|        63588|                              7|                      0|                           1|                                   0|                 0|            544|           22|      AMX|\n|          6|            0|                         0.213178682| 74|                                   0|0.375606969|         3500|                              3|                      0|                           1|                                   0|                 1|            526|           29|      VSA|\n|          7|            0|                         0.305682465| 57|                                   0|     5710.0|       -99999|                              8|                      0|                           3|                                   0|                 0|            587|           29|      MST|\n|          8|            0|                         0.754463648| 39|                                   0|0.209940017|         3500|                              8|                      0|                           0|                                   0|                 0|            536|           29|      MST|\n|          9|            0|                         0.116950644| 27|                                   0|       46.0|       -99999|                              2|                      0|                           0|                                   0|            -99999|              0|           29|      MST|\n|         10|            0|                         0.189169052| 57|                                   0|0.606290901|        23684|                              9|                      0|                           4|                                   0|                 2|            565|           29|      AMX|\n|         11|            0|                         0.644225962| 30|                                   0| 0.30947621|         2500|                              5|                      0|                           0|                                   0|                 0|            489|           29|      VSA|\n|         12|            0|                          0.01879812| 51|                                   0| 0.53152876|         6501|                              7|                   null|                           2|                                   0|                 2|            518|           29|      VSA|\n|         13|            0|                         0.010351857| 46|                                   0|0.298354075|        12454|                             13|                      0|                           2|                                   0|                 2|              0|           29|      MST|\n|         14|            1|                         0.964672555| 40|                                   3|0.382964747|        13700|                              9|                      3|                           1|                                   1|                 2|            592|           89|      AMX|\n|         15|            0|                         0.019656581| 76|                                   0|      477.0|            0|                              6|                      0|                           1|                                   0|                 0|            524|           29|      MST|\n|         16|            0|                         0.548458062| 64|                                   0|0.209891754|        11362|                              7|                      0|                           1|                                   0|                 2|            632|           29|      MST|\n|         17|            0|                         0.061086118| 78|                                   0|     2058.0|       -99999|                             10|                      0|                           2|                                   0|                 0|            468|           29|      AMX|\n|         18|            0|                         0.166284079| 53|                                   0| 0.18827406|         8800|                              7|                      0|                           0|                                   0|                 0|            530|           29|      MST|\n|         19|            0|                         0.221812771| 43|                                   0|0.527887839|         3280|                              7|                      0|                           1|                                   0|                 2|            566|           29|      MST|\n|         20|            0|                         0.602794411| 25|                                   0|0.065868263|          333|                              2|                      0|                           0|                                   0|                 0|            616|           29|      MST|\n+-----------+-------------+------------------------------------+---+------------------------------------+-----------+-------------+-------------------------------+-----------------------+----------------------------+------------------------------------+------------------+---------------+-------------+---------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.17.0.2:4040/jobs/job?id\u003d25",
+            "http://172.17.0.2:4040/jobs/job?id\u003d26",
+            "http://172.17.0.2:4040/jobs/job?id\u003d27",
+            "http://172.17.0.2:4040/jobs/job?id\u003d28"
+          ],
+          "interpreterSettingId": "2CC448YCE"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1490729895987_-372023774",
+      "id": "20170328-193815_1073237483",
+      "dateCreated": "Mar 28, 2017 7:38:15 PM",
+      "dateStarted": "Mar 30, 2017 12:46:10 AM",
+      "dateFinished": "Mar 30, 2017 12:46:11 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Writing a CSV after re-partitioning will likely cause you to have many files\ndf.repartition(100).write.format(\"csv\").option(\"headers\", True).save(\"/data-sets/test.csv\")",
+      "user": "anonymous",
+      "dateUpdated": "Mar 29, 2017 2:59:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1490799479718_786581505",
+      "id": "20170329-145759_124652901",
+      "dateCreated": "Mar 29, 2017 2:57:59 PM",
+      "dateStarted": "Mar 29, 2017 2:59:37 PM",
+      "dateFinished": "Mar 29, 2017 2:59:38 PM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# A DataFrame is just an RDD with a schema associated with it\nrdd \u003d df.rdd\nfor x in rdd.map(lambda x: list(x)).take(10):\n    print x\n\ndf.printSchema()\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 30, 2017 12:47:43 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[1, 1, 0.766126609, 45, 2, 0.802982129, 9120, 13, 0, 6, 0, 2, 714, 22, u\u0027MST\u0027]\n[2, 0, 0.957151019, 40, 0, 0.121876201, 2600, 4, 0, 0, 0, 1, 529, 29, u\u0027AMX\u0027]\n[3, 0, 0.65818014, 38, 1, 0.085113375, 3042, 2, 1, 0, 0, 0, 445, 22, u\u0027AMX\u0027]\n[4, 0, 0.233809776, 30, 0, 0.036049682, 3300, 5, 0, 0, 0, 0, 561, 29, u\u0027VSA\u0027]\n[5, 0, 0.9072394, 49, 1, 0.024925695, 63588, 7, 0, 1, 0, 0, 544, 22, u\u0027AMX\u0027]\n[6, 0, 0.213178682, 74, 0, 0.375606969, 3500, 3, 0, 1, 0, 1, 526, 29, u\u0027VSA\u0027]\n[7, 0, 0.305682465, 57, 0, 5710.0, -99999, 8, 0, 3, 0, 0, 587, 29, u\u0027MST\u0027]\n[8, 0, 0.754463648, 39, 0, 0.209940017, 3500, 8, 0, 0, 0, 0, 536, 29, u\u0027MST\u0027]\n[9, 0, 0.116950644, 27, 0, 46.0, -99999, 2, 0, 0, 0, -99999, 0, 29, u\u0027MST\u0027]\n[10, 0, 0.189169052, 57, 0, 0.606290901, 23684, 9, 0, 4, 0, 2, 565, 29, u\u0027AMX\u0027]\nroot\n |-- account_num: integer (nullable \u003d true)\n |-- A_bad_wo_ind8: integer (nullable \u003d true)\n |-- RevolvingUtilizationOfUnsecuredLines: double (nullable \u003d true)\n |-- age: integer (nullable \u003d true)\n |-- NumberOfTime30-59DaysPastDueNotWorse: integer (nullable \u003d true)\n |-- DebtRatio: double (nullable \u003d true)\n |-- MonthlyIncome: integer (nullable \u003d true)\n |-- NumberOfOpenCreditLinesAndLoans: integer (nullable \u003d true)\n |-- NumberOfTimes90DaysLate: integer (nullable \u003d true)\n |-- NumberRealEstateLoansOrLines: integer (nullable \u003d true)\n |-- NumberOfTime60-89DaysPastDueNotWorse: integer (nullable \u003d true)\n |-- NumberOfDependents: integer (nullable \u003d true)\n |-- a0_PROBE_SM_CS2: integer (nullable \u003d true)\n |-- bns_delq_days: integer (nullable \u003d true)\n |-- prod_type: string (nullable \u003d true)\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.17.0.2:4040/jobs/job?id\u003d29"
+          ],
+          "interpreterSettingId": "2CC448YCE"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1490729938944_1842267443",
+      "id": "20170328-193858_596365497",
+      "dateCreated": "Mar 28, 2017 7:38:58 PM",
+      "dateStarted": "Mar 30, 2017 12:47:43 AM",
+      "dateFinished": "Mar 30, 2017 12:47:43 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# SELECT some columns from the DataFrame\ndf.select(\"age\", \"DebtRatio\").show(2)\n\n# We can also select computations\ndf.select(df[\"age\"] * 2, df[\"DebtRatio\"] * 100).show(2)\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 30, 2017 12:49:20 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---+-----------+\n|age|  DebtRatio|\n+---+-----------+\n| 45|0.802982129|\n| 40|0.121876201|\n+---+-----------+\nonly showing top 2 rows\n\n+---------+-----------------+\n|(age * 2)|(DebtRatio * 100)|\n+---------+-----------------+\n|       90|       80.2982129|\n|       80|       12.1876201|\n+---------+-----------------+\nonly showing top 2 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.17.0.2:4040/jobs/job?id\u003d30",
+            "http://172.17.0.2:4040/jobs/job?id\u003d31"
+          ],
+          "interpreterSettingId": "2CC448YCE"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1490731916642_689211095",
+      "id": "20170328-201156_353174020",
+      "dateCreated": "Mar 28, 2017 8:11:56 PM",
+      "dateStarted": "Mar 30, 2017 12:49:20 AM",
+      "dateFinished": "Mar 30, 2017 12:49:21 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# WHERE and ORDERBY can be used too\ndf.where(df[\"age\"] \u003d\u003d 25).select(\"age\", \"DebtRatio\").orderBy(df[\"DebtRatio\"].desc()).show()\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 30, 2017 12:49:55 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---+---------+\n|age|DebtRatio|\n+---+---------+\n| 25|   4592.0|\n| 25|   2637.0|\n| 25|   1341.0|\n| 25|   1279.0|\n| 25|   1250.0|\n| 25|   1233.0|\n| 25|   1186.0|\n| 25|   1102.0|\n| 25|   1086.0|\n| 25|   1055.0|\n| 25|   1005.0|\n| 25|    990.0|\n| 25|    925.0|\n| 25|    917.0|\n| 25|    893.0|\n| 25|    879.0|\n| 25|    875.0|\n| 25|    811.0|\n| 25|    750.0|\n| 25|    735.0|\n+---+---------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.17.0.2:4040/jobs/job?id\u003d32"
+          ],
+          "interpreterSettingId": "2CC448YCE"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1490731909641_-1543486772",
+      "id": "20170328-201149_1273550307",
+      "dateCreated": "Mar 28, 2017 8:11:49 PM",
+      "dateStarted": "Mar 30, 2017 12:49:55 AM",
+      "dateFinished": "Mar 30, 2017 12:49:56 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# We can also replace/add columns\ndf2 \u003d df.withColumn(\"DebtRatio\", df[\"DebtRatio\"] * 2)\ndf2.withColumn(\"Debt\", df2[\"DebtRatio\"] * df2[\"MonthlyIncome\"]).select(\"age\", \"MonthlyIncome\", \"DebtRatio\", \"Debt\").show()\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 30, 2017 12:51:19 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---+-------------+-----------+---------------+\n|age|MonthlyIncome|  DebtRatio|           Debt|\n+---+-------------+-----------+---------------+\n| 45|         9120|1.605964258| 14646.39403296|\n| 40|         2600|0.243752402|    633.7562452|\n| 38|         3042| 0.17022675|    517.8297735|\n| 30|         3300|0.072099364|    237.9279012|\n| 49|        63588| 0.04985139|  3169.95018732|\n| 74|         3500|0.751213938|    2629.248783|\n| 57|       -99999|    11420.0|  -1.14198858E9|\n| 39|         3500|0.419880034|    1469.580119|\n| 27|       -99999|       92.0|     -9199908.0|\n| 57|        23684|1.212581802|28718.787398568|\n| 30|         2500| 0.61895242|     1547.38105|\n| 51|         6501| 1.06305752|  6910.93693752|\n| 46|        12454| 0.59670815|   7431.4033001|\n| 40|        13700|0.765929494|  10493.2340678|\n| 76|            0|      954.0|            0.0|\n| 64|        11362|0.419783508| 4769.580217896|\n| 78|       -99999|     4116.0|  -4.11595884E8|\n| 53|         8800| 0.37654812|    3313.623456|\n| 43|         3280|1.055775678|  3462.94422384|\n| 25|          333|0.131736526|   43.868263158|\n+---+-------------+-----------+---------------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.17.0.2:4040/jobs/job?id\u003d33"
+          ],
+          "interpreterSettingId": "2CC448YCE"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1490732368300_-1090012838",
+      "id": "20170328-201928_216276855",
+      "dateCreated": "Mar 28, 2017 8:19:28 PM",
+      "dateStarted": "Mar 30, 2017 12:51:19 AM",
+      "dateFinished": "Mar 30, 2017 12:51:20 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Stats functions\ndf.describe(\"age\", \"DebtRatio\", \"MonthlyIncome\").show()\n\n# Quartiles (quantiles computed for 25%, 50%, and 75%)\nfor quantile in df.approxQuantile(\"age\", [0.25, 0.5, 0.75], 0.0):\n    print quantile\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 30, 2017 12:51:56 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+------------------+------------------+-----------------+\n|summary|               age|         DebtRatio|    MonthlyIncome|\n+-------+------------------+------------------+-----------------+\n|  count|            150000|            150000|           150000|\n|   mean|52.295206666666665|353.00507576387105|     -14472.32954|\n| stddev|14.771865863100302| 2037.818523144365|44431.63187408903|\n|    min|                 0|               0.0|           -99999|\n|    max|               109|          329664.0|          3008750|\n+-------+------------------+------------------+-----------------+\n\n41.0\n52.0\n63.0\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.17.0.2:4040/jobs/job?id\u003d34",
+            "http://172.17.0.2:4040/jobs/job?id\u003d35"
+          ],
+          "interpreterSettingId": "2CC448YCE"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1490732583337_-644951950",
+      "id": "20170328-202303_1202073861",
+      "dateCreated": "Mar 28, 2017 8:23:03 PM",
+      "dateStarted": "Mar 30, 2017 12:51:56 AM",
+      "dateFinished": "Mar 30, 2017 12:51:58 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Sampling\ndf.sample(False, 0.01).show()\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 30, 2017 12:55:40 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----------+-------------+------------------------------------+---+------------------------------------+-----------+-------------+-------------------------------+-----------------------+----------------------------+------------------------------------+------------------+---------------+-------------+---------+\n|account_num|A_bad_wo_ind8|RevolvingUtilizationOfUnsecuredLines|age|NumberOfTime30-59DaysPastDueNotWorse|  DebtRatio|MonthlyIncome|NumberOfOpenCreditLinesAndLoans|NumberOfTimes90DaysLate|NumberRealEstateLoansOrLines|NumberOfTime60-89DaysPastDueNotWorse|NumberOfDependents|a0_PROBE_SM_CS2|bns_delq_days|prod_type|\n+-----------+-------------+------------------------------------+---+------------------------------------+-----------+-------------+-------------------------------+-----------------------+----------------------------+------------------------------------+------------------+---------------+-------------+---------+\n|          8|            0|                         0.754463648| 39|                                   0|0.209940017|         3500|                              8|                      0|                           0|                                   0|                 0|            536|           29|      MST|\n|        141|            0|                         0.147996253| 55|                                   0|0.323088235|         6799|                              5|                      0|                           1|                                   0|                 0|            448|           29|      VSA|\n|        205|            0|                         0.030173038| 64|                                   0| 0.17386957|         9000|                              8|                      0|                           1|                                   0|                 0|            587|           29|      VSA|\n|        290|            0|                         0.144878408| 66|                                   0| 0.28446242|         8900|                              9|                      0|                           1|                                   0|                 0|            673|           29|      MST|\n|        303|            0|                         0.035940506| 46|                                   0|0.271186441|         6666|                             10|                      0|                           1|                                   0|                 3|            526|           29|      VSA|\n|        473|            0|                         0.073123172| 33|                                   0|0.216405216|         5290|                              9|                      0|                           0|                                   0|                 0|            600|           29|      AMX|\n|        491|            0|                         0.401789055| 55|                                   0|0.412779302|         2550|                             11|                      0|                           0|                                   0|                 0|            630|           29|      AMX|\n|        634|            0|                         0.046740048| 57|                                   0|0.404799866|        11916|                             13|                      0|                           3|                                   0|                 0|              0|           29|      MST|\n|        938|            0|                         0.163750645| 65|                                   0|0.266873313|        10000|                             13|                      0|                           1|                                   0|                 0|            500|           29|      AMX|\n|       1091|            0|                                 0.0| 37|                                   0|0.372395469|         7150|                              3|                      0|                           2|                                   0|                 2|            529|           29|      MST|\n|       1107|            0|                         0.123471362| 63|                                   0|0.364188164|         2635|                              6|                      0|                           1|                                   0|                 1|            530|           29|      VSA|\n|       1437|            0|                         0.380440179| 58|                                   0|0.321542384|         6275|                              9|                      0|                           1|                                   0|                 0|            609|           29|      VSA|\n|       1448|            0|                         0.122830785| 46|                                   0|     2162.0|       -99999|                              4|                      0|                           1|                                   0|                 0|            638|           29|      VSA|\n|       1462|            0|                         0.057155929| 60|                                   0|0.224294881|         6700|                             10|                      0|                           1|                                   0|                 0|            450|           29|      AMX|\n|       1556|            0|                         0.312571479| 33|                                   0|0.107851172|         6100|                              5|                      0|                           0|                                   0|                 0|            554|           29|      VSA|\n|       1667|            0|                         1.708044916| 47|                                   0|1.862758161|         1500|                              6|                      0|                           1|                                   0|                 0|            557|           29|      MST|\n|       1711|            0|                                 0.0| 29|                                   0|     1394.0|       -99999|                              5|                      0|                           1|                                   0|                 0|            631|           29|      VSA|\n|       1726|            0|                         0.356634904| 49|                                   1|0.458135466|         4000|                             11|                      0|                           2|                                   0|                 0|            571|           22|      AMX|\n|       1737|            0|                         0.213785748| 46|                                   0|0.367816092|         2000|                              5|                      0|                           1|                                   0|                 0|            519|           29|      VSA|\n|       1749|            0|                         0.006796192| 77|                                   0| 0.41393079|         2253|                             13|                      0|                           1|                                   0|                 0|            480|           29|      VSA|\n+-----------+-------------+------------------------------------+---+------------------------------------+-----------+-------------+-------------------------------+-----------------------+----------------------------+------------------------------------+------------------+---------------+-------------+---------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.17.0.2:4040/jobs/job?id\u003d37"
+          ],
+          "interpreterSettingId": "2CC448YCE"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1490732955123_-1475303018",
+      "id": "20170328-202915_1241451138",
+      "dateCreated": "Mar 28, 2017 8:29:15 PM",
+      "dateStarted": "Mar 30, 2017 12:55:40 AM",
+      "dateFinished": "Mar 30, 2017 12:55:40 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Debug\ndf.selectExpr(\"AVG(age)\").explain()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 30, 2017 12:55:55 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003d\u003d Physical Plan \u003d\u003d\n*HashAggregate(keys\u003d[], functions\u003d[avg(cast(age#66 as bigint))])\n+- Exchange SinglePartition\n   +- *HashAggregate(keys\u003d[], functions\u003d[partial_avg(cast(age#66 as bigint))])\n      +- *Scan csv [age#66] Format: CSV, InputPaths: file:/data-sets/new-cs-training3.csv, PartitionFilters: [], PushedFilters: [], ReadSchema: struct\u003cage:int\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1490732865526_-252894466",
+      "id": "20170328-202745_415077754",
+      "dateCreated": "Mar 28, 2017 8:27:45 PM",
+      "dateStarted": "Mar 30, 2017 12:55:55 AM",
+      "dateFinished": "Mar 30, 2017 12:55:56 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Create a SQL table that we can use later\ndf.registerTempTable(\"training\")",
+      "user": "anonymous",
+      "dateUpdated": "Mar 30, 2017 12:56:31 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1490730017399_1768719107",
+      "id": "20170328-194017_2104419993",
+      "dateCreated": "Mar 28, 2017 7:40:17 PM",
+      "dateStarted": "Mar 30, 2017 12:56:31 AM",
+      "dateFinished": "Mar 30, 2017 12:56:31 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n\n-- We can now refer to this table directly as if we were using SQL Server 2003\nSELECT * FROM training ORDER BY account_num DESC LIMIT 100\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 30, 2017 12:57:38 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "account_num\tA_bad_wo_ind8\tRevolvingUtilizationOfUnsecuredLines\tage\tNumberOfTime30-59DaysPastDueNotWorse\tDebtRatio\tMonthlyIncome\tNumberOfOpenCreditLinesAndLoans\tNumberOfTimes90DaysLate\tNumberRealEstateLoansOrLines\tNumberOfTime60-89DaysPastDueNotWorse\tNumberOfDependents\ta0_PROBE_SM_CS2\tbns_delq_days\tprod_type\n150000\t0\t0.850282951\t64\t0\t0.249908077\t8158\t8\t0\t2\t0\t0\t524\t29\tVSA\n149999\t0\t0.0\t30\t0\t0.0\t5716\t4\t0\t0\t0\t0\t592\t29\tVSA\n149998\t0\t0.246043918\t58\t0\t3870.0\t-99999\t18\t0\t1\t0\t0\t0\t29\tAMX\n149997\t0\t0.299745148\t44\t0\t0.71656222\t5584\t4\t0\t1\t0\t2\t518\t29\tVSA\n149996\t0\t0.040673864\t74\t0\t0.22513089\t2100\t4\t0\t1\t0\t0\t489\t29\tAMX\n149995\t0\t0.385742265\t50\t0\t0.404292855\t3400\t7\t0\t0\t0\t0\t565\t29\tMST\n149994\t0\t0.9999999\t22\t0\t0.0\t820\t1\t0\t0\t0\t0\t0\t29\tAMX\n149993\t0\t0.871975945\t50\t0\t4132.0\t-99999\t11\t0\t1\t0\t3\t536\t29\tMST\n149992\t0\t0.1041117\t59\t0\t0.477658234\t10316\t10\t0\t2\t0\t0\t587\t29\tVSA\n149991\t0\t0.055518163\t46\t0\t0.609778598\t4335\t7\t0\t1\t0\t2\t526\t29\tVSA\n149990\t0\t0.013355707\t62\t0\t0.001407841\t9233\t4\t0\t0\t0\t3\t544\t29\tVSA\n149989\t0\t0.902050553\t31\t1\t0.347924428\t7515\t10\t0\t1\t0\t0\t561\t22\tMST\n149988\t0\t0.9999999\t28\t0\t0.055692308\t3249\t3\t1\t0\t0\t0\t445\t29\tMST\n149987\t0\t0.168101659\t49\t0\t0.080383923\t5000\t16\t0\t0\t0\t1\t529\t29\tVSA\n149986\t0\t0.954409118\t26\t0\t0.324961558\t1950\t4\t0\t0\t0\t0\t714\t29\tAMX\n149985\t0\t0.037548123\t84\t0\t25.0\t-99999\t5\t0\t0\t0\t0\t626\t29\tVSA\n149984\t0\t0.002484811\t82\t0\t7.9984E-4\t5000\t5\t0\t0\t0\t0\t546\t29\tMST\n149983\t0\t0.021046019\t37\t0\t0.250271641\t2760\t8\t0\t0\t0\t3\t696\t29\tVSA\n149982\t0\t0.810012257\t43\t0\t0.121751825\t6849\t4\t0\t0\t0\t4\t633\t29\tAMX\n149981\t0\t0.067643815\t64\t0\t0.254976475\t5525\t12\t0\t1\t0\t0\t630\t29\tVSA\n149980\t1\t0.224710924\t55\t0\t0.057234801\t8700\t7\t0\t0\t0\t0\t460\t29\tVSA\n149979\t0\t0.917635296\t52\t2\t0.259496202\t2500\t4\t0\t0\t0\t0\t505\t22\tVSA\n149978\t0\t0.236449864\t29\t0\t349.0\t-99999\t3\t0\t0\t0\t0\t673\t29\tMST\n149977\t0\t6.27439E-4\t76\t0\t60.0\t-99999\t5\t0\t0\t0\t0\t643\t29\tAMX\n149976\t0\t0.022088398\t58\t0\t2716.0\t-99999\t8\t0\t2\t0\t0\t522\t29\tAMX\n149975\t0\t0.962721342\t61\t2\t0.603479304\t5000\t11\t0\t1\t0\t0\t681\t22\tAMX\n149974\t0\t1.026394721\t44\t0\t0.494819124\t5500\t7\t0\t1\t0\t1\t551\t29\tVSA\n149973\t0\t0.071273404\t42\t0\t0.008638065\t6945\t3\t0\t0\t0\t1\t713\t29\tMST\n149972\t0\t0.058000533\t83\t0\t0.013997201\t5000\t6\t0\t0\t0\t0\t0\t29\tVSA\n149971\t0\t0.025449081\t58\t0\t0.25385459\t15500\t7\t0\t2\t0\t2\t569\t29\tMST\n149970\t0\t0.075535252\t43\t0\t0.197537582\t14700\t10\t0\t3\t0\t2\t658\t29\tMST\n149969\t1\t0.983824929\t55\t0\t0.064116496\t4600\t2\t1\t0\t0\t6\t557\t29\tMST\n149968\t0\t0.977898983\t63\t0\t517.0\t-99999\t5\t0\t0\t1\t0\t561\t29\tAMX\n149967\t0\t0.081929733\t57\t0\t0.337166427\t16000\t15\t0\t2\t0\t0\t639\t29\tVSA\n149966\t0\t0.9999999\t27\t0\t98.0\t-99999\t2\t0\t0\t0\t-99999\t511\t29\tVSA\n149965\t0\t1.010934465\t63\t0\t0.608211436\t6015\t8\t0\t1\t0\t0\t695\t29\tMST\n149964\t0\t0.230353045\t61\t0\t883.0\t-99999\t15\t0\t0\t0\t2\t654\t29\tVSA\n149963\t0\t1.005732951\t48\t0\t0.248896435\t2944\t4\t3\t0\t0\t1\t600\t89\tMST\n149962\t1\t0.920106525\t31\t1\t0.176731794\t1125\t4\t1\t0\t0\t0\t450\t22\tVSA\n149961\t0\t0.0\t49\t0\t353.0\t-99999\t2\t0\t0\t0\t0\t518\t29\tMST\n149960\t0\t0.293142671\t67\t0\t0.224866391\t9916\t4\t0\t1\t0\t0\t0\t29\tAMX\n149959\t0\t0.457100576\t63\t0\t4945.0\t-99999\t9\t0\t1\t0\t0\t665\t29\tMST\n149958\t0\t0.843903895\t28\t0\t0.127106541\t3500\t4\t0\t0\t0\t3\t702\t29\tAMX\n149957\t0\t0.906818993\t30\t2\t0.168237646\t3500\t4\t0\t0\t0\t0\t554\t22\tAMX\n149956\t1\t1.135552064\t41\t2\t0.845887215\t7500\t12\t0\t4\t1\t0\t396\t22\tVSA\n149955\t1\t0.9999999\t46\t0\t170.39801\t401\t3\t2\t0\t0\t2\t621\t89\tAMX\n149954\t0\t0.231488426\t41\t0\t1198.0\t-99999\t3\t0\t1\t0\t0\t477\t29\tAMX\n149953\t0\t0.019785038\t58\t0\t1328.0\t-99999\t6\t0\t1\t0\t2\t507\t29\tAMX\n149952\t0\t0.01451033\t76\t0\t0.143179619\t3100\t8\t0\t0\t0\t0\t480\t29\tAMX\n149951\t0\t0.004826613\t61\t0\t1940.0\t0\t10\t0\t1\t0\t0\t665\t29\tAMX\n149950\t0\t0.187983837\t30\t0\t0.417555938\t2904\t7\t0\t1\t0\t0\t608\t29\tMST\n149949\t0\t0.055529918\t27\t0\t10.0\t-99999\t1\t0\t0\t0\t-99999\t623\t29\tAMX\n149948\t0\t0.220232272\t67\t0\t0.474080268\t7175\t19\t0\t1\t0\t0\t638\t29\tMST\n149947\t0\t0.923845194\t38\t0\t21.0\t-99999\t2\t0\t0\t0\t0\t756\t29\tAMX\n149946\t0\t0.151669533\t50\t0\t0.274639102\t5610\t18\t0\t2\t0\t0\t0\t29\tMST\n149945\t0\t0.291860427\t36\t1\t0.119286696\t24000\t12\t0\t2\t0\t0\t682\t22\tVSA\n149944\t0\t0.699617595\t40\t0\t0.400547314\t13885\t18\t0\t4\t0\t0\t461\t29\tMST\n149943\t0\t0.208187267\t60\t0\t0.38618645\t9106\t9\t0\t2\t0\t1\t600\t29\tVSA\n149942\t1\t0.149764181\t28\t0\t0.303431505\t3700\t12\t0\t1\t0\t0\t482\t29\tVSA\n149941\t1\t0.847040738\t47\t0\t432.0\t-99999\t6\t0\t0\t0\t0\t581\t29\tAMX\n149940\t0\t1.0499002\t26\t0\t0.073219505\t6500\t6\t0\t0\t1\t0\t519\t29\tAMX\n149939\t0\t0.329479408\t35\t1\t0.339813375\t2571\t7\t0\t1\t0\t1\t629\t22\tMST\n149938\t1\t0.677344917\t38\t3\t0.24227835\t13500\t9\t0\t1\t0\t3\t632\t22\tMST\n149937\t0\t0.326193355\t66\t0\t0.407590759\t2423\t5\t0\t0\t0\t0\t609\t29\tVSA\n149936\t0\t0.9999999\t61\t0\t5.0\t-99999\t1\t0\t0\t1\t0\t474\t29\tMST\n149935\t0\t0.02889087\t56\t0\t0.856571714\t2000\t8\t0\t1\t0\t1\t649\t29\tMST\n149934\t0\t0.0\t56\t0\t0.49410118\t5000\t8\t0\t1\t0\t0\t651\t29\tVSA\n149933\t0\t0.807020815\t59\t0\t5467.0\t-99999\t19\t0\t2\t0\t0\t500\t29\tMST\n149932\t0\t0.005859153\t66\t0\t1479.0\t-99999\t10\t0\t1\t0\t0\t584\t29\tAMX\n149931\t0\t0.0\t70\t0\t0.253990094\t3633\t12\t0\t1\t0\t0\t542\t29\tVSA\n149930\t0\t0.239325356\t64\t0\t0.085965614\t2500\t2\t0\t0\t0\t0\t728\t29\tVSA\n149929\t0\t0.342069021\t45\t0\t0.251994158\t8900\t14\t0\t1\t0\t4\t571\t29\tMST\n149928\t0\t3.603566072\t71\t0\t0.054401423\t12370\t5\t0\t0\t0\t1\t448\t29\tVSA\n149927\t0\t0.0\t70\t0\t0.129249227\t5500\t14\t0\t1\t0\t1\t542\t29\tAMX\n149926\t0\t0.146194152\t48\t0\t0.153215849\t8908\t8\t0\t1\t0\t1\t0\t29\tAMX\n149925\t1\t0.673698801\t62\t1\t3653.0\t-99999\t16\t0\t1\t0\t1\t501\t22\tVSA\n149924\t0\t0.245212355\t62\t0\t3720.0\t-99999\t16\t0\t2\t0\t0\t679\t29\tMST\n149923\t0\t0.761465216\t41\t0\t6114.0\t-99999\t19\t0\t1\t0\t2\t701\t29\tVSA\n149922\t0\t0.031837683\t67\t0\t1182.0\t-99999\t5\t0\t1\t0\t0\t0\t29\tAMX\n149921\t0\t0.083256734\t49\t0\t0.017796441\t5000\t2\t0\t0\t0\t3\t624\t29\tMST\n149920\t0\t0.191063847\t45\t0\t0.258303773\t3100\t6\t0\t1\t0\t0\t470\t29\tMST\n149919\t0\t0.015699215\t77\t0\t9.0\t-99999\t2\t0\t0\t0\t0\t491\t29\tAMX\n149918\t0\t0.01585557\t64\t0\t0.112411607\t4100\t10\t0\t1\t0\t0\t612\t29\tAMX\n149917\t0\t0.253136913\t50\t3\t0.503715332\t9554\t27\t0\t2\t0\t1\t624\t22\tMST\n149916\t0\t0.208987583\t76\t0\t1903.0\t-99999\t10\t0\t2\t0\t0\t494\t29\tMST\n149915\t0\t0.012975792\t64\t2\t0.249195797\t9325\t5\t0\t1\t0\t1\t451\t22\tVSA\n149914\t0\t0.04599781\t39\t0\t0.865955473\t2155\t7\t0\t1\t0\t0\t631\t29\tAMX\n149913\t0\t0.052185506\t71\t0\t16.0\t-99999\t2\t0\t0\t0\t0\t476\t29\tAMX\n149912\t0\t0.728363561\t66\t1\t0.625858465\t3348\t7\t0\t1\t0\t0\t619\t22\tVSA\n149911\t0\t0.117426773\t39\t0\t0.122474484\t4800\t11\t0\t0\t1\t2\t518\t29\tVSA\n149910\t0\t1.139720559\t38\t2\t0.016733987\t1732\t4\t0\t0\t1\t3\t664\t22\tVSA\n149909\t0\t0.426950627\t80\t0\t0.149964294\t4200\t4\t0\t0\t0\t0\t599\t29\tAMX\n149908\t0\t0.309121169\t60\t0\t1.124589086\t9125\t11\t0\t4\t0\t0\t470\t29\tMST\n149907\t0\t0.056999416\t62\t0\t0.116106135\t17750\t18\t0\t1\t0\t3\t458\t29\tMST\n149906\t0\t0.003340586\t81\t0\t6.77966E-4\t5899\t7\t0\t0\t0\t0\t616\t29\tVSA\n149905\t0\t0.00287488\t50\t0\t0.277460929\t13500\t11\t0\t3\t0\t0\t566\t29\tAMX\n149904\t1\t0.552156677\t55\t0\t0.337034981\t1800\t7\t1\t0\t0\t1\t530\t29\tVSA\n149903\t0\t0.0\t80\t0\t0.0\t1600\t1\t0\t0\t0\t0\t468\t29\tVSA\n149902\t0\t0.0\t94\t0\t0.0\t3600\t4\t0\t0\t0\t0\t632\t29\tAMX\n149901\t0\t0.031635479\t56\t0\t0.261375523\t7647\t6\t0\t1\t0\t1\t524\t29\tAMX\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.17.0.2:4040/jobs/job?id\u003d38"
+          ],
+          "interpreterSettingId": "2CC448YCE"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1490730169653_-1391043532",
+      "id": "20170328-194249_598450548",
+      "dateCreated": "Mar 28, 2017 7:42:49 PM",
+      "dateStarted": "Mar 30, 2017 12:57:11 AM",
+      "dateFinished": "Mar 30, 2017 12:57:12 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n\n-- We can also visualize data\nSELECT ROUND(age / 4) * 4 `age`, AVG(DebtRatio) `debt ratio`, AVG(MonthlyIncome) `income` FROM training WHERE MonthlyIncome !\u003d -99999 GROUP BY ROUND(age / 4)\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 30, 2017 12:59:05 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "scatterChart",
+              "height": 300.0,
+              "optionOpen": true,
+              "setting": {
+                "scatterChart": {
+                  "xAxis": {
+                    "name": "age",
+                    "index": 0.0,
+                    "aggr": "sum"
+                  },
+                  "size": {
+                    "name": "income",
+                    "index": 2.0,
+                    "aggr": "sum"
+                  },
+                  "yAxis": {
+                    "name": "debt ratio",
+                    "index": 1.0,
+                    "aggr": "sum"
+                  }
+                }
+              }
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "age\tdebt ratio\tincome\n32.0\t15.373302989545454\t4750.4909947353835\n0.0\t0.436927179\t6000.0\n28.0\t17.538576739583856\t3475.5780020181633\n72.0\t15.95745872103498\t6042.104978129556\n100.0\t0.19191376312500003\t4065.375\n92.0\t0.7505195286933342\t5514.18\n44.0\t37.228595786727254\t7374.618365703034\n84.0\t8.198009528042977\t5550.584850691916\n56.0\t22.02221907310208\t7684.870120589549\n88.0\t75.96389906950719\t5005.184210526316\n76.0\t15.393270191602607\t5530.839513161619\n68.0\t20.790811000083686\t7253.214634146341\n40.0\t34.433891278082584\t6433.302456348032\n52.0\t30.577023181009793\t7936.2283268223755\n24.0\t6.700074785549501\t2041.748364587876\n80.0\t13.493529035867931\t5292.488640739314\n60.0\t22.86748093063383\t7563.858204688393\n20.0\t0.5691924319769232\t1128.123076923077\n96.0\t365.691457311\t7597.9473684210525\n36.0\t27.026194911134073\t5762.252434456929\n104.0\t449.69406696525\t2079.5\n64.0\t29.743263223832873\t7513.895959699805\n48.0\t36.117170332304774\t7350.086691473359\n"
+          }
+        ]
+      },
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            "http://172.17.0.2:4040/jobs/job?id\u003d39",
+            "http://172.17.0.2:4040/jobs/job?id\u003d40"
+          ],
+          "interpreterSettingId": "2CC448YCE"
+        }
+      },
+      "apps": [],
+      "jobName": "paragraph_1490730186421_648925784",
+      "id": "20170328-194306_1400761404",
+      "dateCreated": "Mar 28, 2017 7:43:06 PM",
+      "dateStarted": "Mar 30, 2017 12:58:09 AM",
+      "dateFinished": "Mar 30, 2017 12:58:11 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 28, 2017 7:45:12 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1490730312524_-1614735885",
+      "id": "20170328-194512_761957029",
+      "dateCreated": "Mar 28, 2017 7:45:12 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "DataFrames",
+  "id": "2CET5PGAB",
+  "angularObjects": {
+    "2CD1T3UTT:shared_process": [],
+    "2CBZTUP1S:shared_process": [],
+    "2CEGFTG9P:shared_process": [],
+    "2CCVC88V6:shared_process": [],
+    "2CE6AE13E:shared_process": [],
+    "2CBTJTG4Y:shared_process": [],
+    "2CECCEDDJ:shared_process": [],
+    "2CBPKCJQ4:shared_process": [],
+    "2CCTRXXGF:shared_process": [],
+    "2CC448YCE:shared_process": [],
+    "2CE4Z8MMM:shared_process": [],
+    "2CCQFNH7C:shared_process": [],
+    "2CERGR966:shared_process": [],
+    "2CD49EMZJ:shared_process": [],
+    "2CF2Z9ZXM:shared_process": [],
+    "2CDDPB5M2:shared_process": [],
+    "2CDY34384:shared_process": [],
+    "2CD6DM72X:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

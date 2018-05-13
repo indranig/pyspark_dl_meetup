@@ -1,0 +1,459 @@
+{
+  "paragraphs": [
+    {
+      "text": "%pyspark\n\nimport tensorflow as tf",
+      "user": "anonymous",
+      "dateUpdated": "Apr 19, 2017 7:26:51 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1492025319223_-2102530859",
+      "id": "20170412-192839_1606044002",
+      "dateCreated": "Apr 12, 2017 7:28:39 PM",
+      "dateStarted": "Apr 12, 2017 11:48:30 PM",
+      "dateFinished": "Apr 12, 2017 11:48:30 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# We can specify what graph we are using.\n\n# Create a new graph.\nmy_graph \u003d tf.Graph()\n\n# We can use this as the default graph by wrapping it in a \"when\" block.\nwith my_graph.as_default():\n    \n    # Create a constant in our graph.\n    my_first_tensor \u003d tf.constant(9)\n    \n    # What happens if we try to print our constant?\n    print my_first_tensor",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 11:48:38 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Tensor(\"Const:0\", shape\u003d(), dtype\u003dint32)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492025335938_-487309004",
+      "id": "20170412-192855_1067625982",
+      "dateCreated": "Apr 12, 2017 7:28:55 PM",
+      "dateStarted": "Apr 12, 2017 11:48:38 PM",
+      "dateFinished": "Apr 12, 2017 11:48:38 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Note: The name doesn\u0027t change anymore!",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 7:35:33 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1492025703769_-1809232893",
+      "id": "20170412-193503_676373700",
+      "dateCreated": "Apr 12, 2017 7:35:03 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Now we need to specify that the session should use our graph.\nsess \u003d tf.Session(graph\u003dmy_graph)\n\n# We can fetch tensors as usual.\nfetched_value \u003d sess.run(my_first_tensor)\n\n# Verify the value is returned.\nprint fetched_value",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 11:49:39 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "9\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492025564375_-2033708423",
+      "id": "20170412-193244_1433773873",
+      "dateCreated": "Apr 12, 2017 7:32:44 PM",
+      "dateStarted": "Apr 12, 2017 11:49:39 PM",
+      "dateFinished": "Apr 12, 2017 11:49:39 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# From now on, we will create new graphs to prevent operations from *building up*.",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 7:37:29 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1492025818470_-926048632",
+      "id": "20170412-193658_124526645",
+      "dateCreated": "Apr 12, 2017 7:36:58 PM",
+      "dateStarted": "Apr 12, 2017 7:37:29 PM",
+      "dateFinished": "Apr 12, 2017 7:37:29 PM",
+      "status": "ERROR",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# We can use this to create the same graph as before.\n\n# Create a new graph.\nmy_graph \u003d tf.Graph()\n\n# Use our graph as the default by wrapping it in a \"with\" block.\nwith my_graph.as_default():\n    \n    # Create a constant in our graph.\n    my_first_tensor \u003d tf.constant(9)\n    \n    # Create an \"add\" operation on our graph.\n    # Use our first tensor and a hardcoded value as inputs.\n    my_operation \u003d tf.add(my_first_tensor, -10, name\u003d\"my_operation\")\n    \n# Create the session with our graph.\nsess \u003d tf.Session(graph\u003dmy_graph)\n\n# Run the operation in the graph and fetch the value.\nfetched_value \u003d sess.run(my_operation)\n\n# Verify the value is returned.\nprint fetched_value",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 11:52:28 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "-1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492025849206_-1430408468",
+      "id": "20170412-193729_397135643",
+      "dateCreated": "Apr 12, 2017 7:37:29 PM",
+      "dateStarted": "Apr 12, 2017 11:50:45 PM",
+      "dateFinished": "Apr 12, 2017 11:50:45 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Write the new graph to TensorBoard.\nwriter \u003d tf.summary.FileWriter(\"/tmp/logs/\", sess.graph)",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 11:50:49 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026244968_-170793643",
+      "id": "20170412-194404_1006740857",
+      "dateCreated": "Apr 12, 2017 7:44:04 PM",
+      "dateStarted": "Apr 12, 2017 11:50:49 PM",
+      "dateFinished": "Apr 12, 2017 11:50:49 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# To see the changes on TensorBoard simply refresh the page.",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 7:45:41 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026308317_-1546362906",
+      "id": "20170412-194508_756873212",
+      "dateCreated": "Apr 12, 2017 7:45:08 PM",
+      "dateStarted": "Apr 12, 2017 7:45:41 PM",
+      "dateFinished": "Apr 12, 2017 7:45:41 PM",
+      "status": "ERROR",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Let\u0027s create the graph that we drew on the board.\n\n# Create a new graph.\nmy_graph \u003d tf.Graph()\n\n# Use our graph as the default by wrapping it in a \"when\" block.\nwith my_graph.as_default():\n    \n    # Create two constants in our graph.\n    My_constant_1 \u003d tf.constant(3, dtype\u003d\"float\", name\u003d\"My_constant_1\")\n    My_constant_2 \u003d tf.constant(6, dtype\u003d\"float\", name\u003d\"My_constant_2\")\n    \n    # Create a placeholder in our graph.\n    My_placeholder \u003d tf.placeholder(dtype\u003d\"float\", name\u003d\"My_placeholder\")\n    \n    # Create a variable in our graph.\n    My_variable \u003d tf.Variable(1, dtype\u003d\"float\", name\u003d\"My_variable\")\n    \n    # Create two \"add\" operation on our graph.\n    My_operation_1 \u003d My_constant_1 + My_constant_2\n    My_operation_2 \u003d My_constant_1 + My_placeholder\n    My_operation_3 \u003d My_variable.assign(My_variable + My_operation_1)\n    \n    # Create operation to initialize variables.\n    Init \u003d tf.global_variables_initializer()\n    \n# Create the session using our graph.\nsess \u003d tf.Session(graph\u003dmy_graph)\n    \n# Run the operation that initializes the variables.\nsess.run(Init)",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 11:59:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026341868_-919360116",
+      "id": "20170412-194541_1130936736",
+      "dateCreated": "Apr 12, 2017 7:45:41 PM",
+      "dateStarted": "Apr 12, 2017 11:59:37 PM",
+      "dateFinished": "Apr 12, 2017 11:59:37 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# We can run our first operation with the following.\n# It\u0027s important to note that this operation does not have any unfulfilled dependancies.\nmy_result_1 \u003d sess.run(My_operation_1)\n\nprint my_result_1",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 11:59:59 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "9.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492029093949_-1281118793",
+      "id": "20170412-203133_119066995",
+      "dateCreated": "Apr 12, 2017 8:31:33 PM",
+      "dateStarted": "Apr 12, 2017 11:59:59 PM",
+      "dateFinished": "Apr 12, 2017 11:59:59 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# If we want to run our second operation, it has an unfulfilled dependancy.\n# My_placeholder needs to be fed a value via the \"feed_dict argument\".\nmy_result_2 \u003d sess.run(My_operation_2, feed_dict\u003d{ My_placeholder: 12 })\n\nprint my_result_2",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:01:45 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "15.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492028666936_1412142121",
+      "id": "20170412-202426_16020711",
+      "dateCreated": "Apr 12, 2017 8:24:26 PM",
+      "dateStarted": "Apr 13, 2017 12:01:45 AM",
+      "dateFinished": "Apr 13, 2017 12:01:45 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# The third operation depends on the running of the second operation.\n# This means we still need to fulfill the requirements for the first operation.\nmy_result_3 \u003d sess.run(My_operation_3, feed_dict\u003d{ My_placeholder: 6 })\n\nprint my_result_3",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:03:35 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "100.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492028671456_1099356589",
+      "id": "20170412-202431_516174673",
+      "dateCreated": "Apr 12, 2017 8:24:31 PM",
+      "dateStarted": "Apr 13, 2017 12:03:35 AM",
+      "dateFinished": "Apr 13, 2017 12:03:35 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# We can even run multiple operations at the same time like so.\nmy_result_1, my_result_2 \u003d sess.run([My_operation_1, My_operation_2], feed_dict\u003d{ My_placeholder: 3 })\n\nprint my_result_1\nprint my_result_2",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:04:14 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "9.0\n6.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492028824306_-515451513",
+      "id": "20170412-202704_1818251672",
+      "dateCreated": "Apr 12, 2017 8:27:04 PM",
+      "dateStarted": "Apr 13, 2017 12:04:14 AM",
+      "dateFinished": "Apr 13, 2017 12:04:14 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 8:29:34 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1492028974374_-690650180",
+      "id": "20170412-202934_1046027281",
+      "dateCreated": "Apr 12, 2017 8:29:34 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "2: Graphs and How to Use Them",
+  "id": "2CCQV8AMV",
+  "angularObjects": {
+    "2CDRD5JD9:shared_process": [],
+    "2CF48Y3NS:shared_process": [],
+    "2CF7SZNH6:shared_process": [],
+    "2CH2T6JGZ:shared_process": [],
+    "2CGAHECFR:shared_process": [],
+    "2CGHN7SZR:shared_process": [],
+    "2CE7BSJJ8:shared_process": [],
+    "2CEUJN4NR:shared_process": [],
+    "2CFU368VA:shared_process": [],
+    "2CE32TZS8:shared_process": [],
+    "2CE2DW36R:shared_process": [],
+    "2CGWJP8UP:shared_process": [],
+    "2CERXUXDT:shared_process": [],
+    "2CDRABTXD:shared_process": [],
+    "2CFRHRY6B:shared_process": [],
+    "2CDQ42Y52:shared_process": [],
+    "2CD8Q7C77:shared_process": [],
+    "2CDEE8W5D:shared_process": [],
+    "2CGR3RNXU:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

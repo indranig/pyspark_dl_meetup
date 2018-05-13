@@ -1,0 +1,332 @@
+{
+  "paragraphs": [
+    {
+      "text": "%pyspark\n\nimport tensorflow as tf\nimport numpy as np\nimport time\nimport matplotlib.pyplot as plt\n\nfrom matplotlib import cm\nfrom matplotlib.ticker import LinearLocator, FormatStrFormatter",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:07:22 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026399330_1482486060",
+      "id": "20170412-194639_604603605",
+      "dateCreated": "Apr 12, 2017 7:46:39 PM",
+      "dateStarted": "Apr 13, 2017 12:07:22 AM",
+      "dateFinished": "Apr 13, 2017 12:07:22 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# We will use Matplotlib and Numpy for the next little bit.",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 7:51:38 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026654711_-1012425022",
+      "id": "20170412-195054_1563618996",
+      "dateCreated": "Apr 12, 2017 7:50:54 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Let\u0027s load in some data using Numpy.\ndata \u003d np.loadtxt(\"/data-sets/line_data.csv\", delimiter\u003d\",\", skiprows\u003d1)",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:07:48 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026433651_741905724",
+      "id": "20170412-194713_75759970",
+      "dateCreated": "Apr 12, 2017 7:47:13 PM",
+      "dateStarted": "Apr 13, 2017 12:07:48 AM",
+      "dateFinished": "Apr 13, 2017 12:07:48 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# We will split the data into \"inputs\" and \"targets\".\n\n# The first (index 0) column is our \"X\" or \"inputs\".\ninputs \u003d data[:,0]\n\n# The second (index 1) column is our \"Y\" or \"targets\".\noutputs \u003d data[:,1]",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:08:51 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026497828_1325847285",
+      "id": "20170412-194817_2048564368",
+      "dateCreated": "Apr 12, 2017 7:48:17 PM",
+      "dateStarted": "Apr 13, 2017 12:08:51 AM",
+      "dateFinished": "Apr 13, 2017 12:08:51 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Close the current plot to insure a clean slate.\nplt.close()\n\n# Zeppelin specific command to update the plot rather than draw a new one each time.\nz.configure_mpl(angular\u003dTrue, close\u003dFalse)\n\n# Clear the plot.\nplt.clf()\n\n# Plot the input vs output.\nplt.plot(inputs, outputs, \".\")\n\n# Display the plot.\nplt.show()",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:09:22 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003cdiv style\u003d\u0027width:auto;height:auto\u0027\u003e\u003cimg src\u003d{{figure_7b3b3cbcb39f4431a2c658b323b05bd1}} style\u003d\u0027width\u003dauto;height:auto\u0027\u003e\u003cdiv\u003e\n"
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026620266_-755458729",
+      "id": "20170412-195020_1238873821",
+      "dateCreated": "Apr 12, 2017 7:50:20 PM",
+      "dateStarted": "Apr 13, 2017 12:09:22 AM",
+      "dateFinished": "Apr 13, 2017 12:09:23 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Let\u0027s create a function to help us display data throughout this notebook.\ndef my_plot(m, b, data_inputs, data_outputs):\n    \n    # Calculate the test values.\n    test_values \u003d np.array([data_inputs.min(), data_inputs.max()])\n    \n    # Calculate the test outputs.\n    test_outputs \u003d test_values * m + b\n    \n    # Clear the plot.\n    plt.clf()\n    \n    # Plot the input vs output.\n    plt.plot(data_inputs, data_outputs, \".\")\n    plt.plot(test_values, test_outputs)\n    \n    # Display the plot.\n    plt.show()",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:10:00 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": ""
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026834528_-676879653",
+      "id": "20170412-195354_1074111010",
+      "dateCreated": "Apr 12, 2017 7:53:54 PM",
+      "dateStarted": "Apr 13, 2017 12:10:00 AM",
+      "dateFinished": "Apr 13, 2017 12:10:01 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Let\u0027s actually look at some data inside of TensorFlow!\n\n# Create a new graph.\nmy_graph \u003d tf.Graph()\n\n# Use our graph as the default by wrapping it in a \"when\" block.\nwith my_graph.as_default():\n    \n    # Create placeholders for inputs \"X\" and labels \"Y\"\n    X \u003d tf.placeholder(tf.float32, name\u003d\"X\")\n    Y \u003d tf.placeholder(tf.float32, name\u003d\"Y\")\n    \n    # Create weights \"W\" and biases \"B\".\n    # We initialize them to 0.\n    W \u003d tf.Variable(0.0, name\u003d\"weights\")\n    B \u003d tf.Variable(0.0, name\u003d\"bias\")\n    \n    # Create an operation that fits \"Y\" to \"X\".\n    Y_predicted \u003d X * W + B\n    \n    # Use the square error as the loss function for the model.\n    Loss \u003d tf.reduce_mean(tf.square(Y - Y_predicted, name\u003d\"loss\"))\n    \n    # Use the built-in gradient descent optimizer.\n    # We set the learning rate to 0.0001 and tell TensorFlow to minimize for the loss.\n    Optimizer \u003d tf.train.GradientDescentOptimizer(learning_rate\u003d0.0001).minimize(Loss)\n    \n    # Create an operation that initializes the variables.\n    Init \u003d tf.global_variables_initializer()\n    \n    \n# Create the session using our graph.\nsess \u003d tf.Session(graph\u003dmy_graph)\n\n# Run the operation that initializes the variables.\nsess.run(Init)\n\n# Start a loop to run multiple sessions of the graph.\n# This will allow for us to start training the model.\n# These are known as epochs.\nfor i in range(20):\n    \n    # Session runs train_op to minimize loss.\n    sess.run(Optimizer, feed_dict\u003d{X: inputs, Y: outputs})\n    \n    # Fetch the slope and bias of the line.\n    w_value, b_value \u003d sess.run([W, B])\n    \n    # Plot the line and the datapoints.\n    my_plot(w_value, b_value, inputs, outputs)\n\n# Output the values of w and b.\nw_value, b_value \u003d sess.run([W, B])\n\n# Display the final slope and biases.\nprint \"slope \u003d \", w_value, \"bias \u003d \", b_value\n\n# Plot the final values.\nmy_plot(w_value, b_value, inputs, outputs)\n\n# Close the session for cleanup.\nsess.close()",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:16:06 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": "slope \u003d  1.39673 bias \u003d  0.0947596\n"
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026999269_1336170920",
+      "id": "20170412-195639_1501288280",
+      "dateCreated": "Apr 12, 2017 7:56:39 PM",
+      "dateStarted": "Apr 13, 2017 12:16:06 AM",
+      "dateFinished": "Apr 13, 2017 12:17:04 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 7:58:58 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1492027138366_1349083817",
+      "id": "20170412-195858_2120372289",
+      "dateCreated": "Apr 12, 2017 7:58:58 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "2.3: TensorFlow Optimizers",
+  "id": "2CE23NKWZ",
+  "angularObjects": {},
+  "config": {},
+  "info": {}
+}

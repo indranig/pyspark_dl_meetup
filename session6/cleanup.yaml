@@ -1,0 +1,41 @@
+---
+
+- hosts: localhost
+  tasks:
+  - name: remove worker auto scaling group
+    ec2_asg:
+      region: "us-east-1"
+      name: meetup-session-6-k8s-worker
+      state: absent
+  - name: remove master auto scaling group
+    ec2_asg:
+      region: "us-east-1"
+      name: meetup-session-6-k8s-master
+      state: absent
+  - name: remove worker launch configuration
+    ec2_lc:
+      region: "us-east-1"
+      name: meetup-session-6-k8s-worker
+      state: absent
+  - name: remove master launch configuration
+    ec2_lc:
+      region: "us-east-1"
+      name: meetup-session-6-k8s-master
+      image_id: ami-e8c1e793
+      state: absent
+  - name: remove security group
+    ec2_group:
+      region: "us-east-1"
+      name: meetup-session-6
+      description: meetup-session-6
+      state: absent
+  - name: remove ec2 key pair
+    ec2_key:
+      region: "us-east-1"
+      name: meetup-session-6
+      state: absent
+  - name: remove IAM role
+    iam_role:
+      name: meetup-session-6
+      state: absent
+

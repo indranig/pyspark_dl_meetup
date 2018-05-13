@@ -1,0 +1,330 @@
+{
+  "paragraphs": [
+    {
+      "text": "%pyspark\n\nimport tensorflow as tf",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 11:31:44 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1492024262016_437492200",
+      "id": "20170412-191102_338301700",
+      "dateCreated": "Apr 12, 2017 7:11:02 PM",
+      "dateStarted": "Apr 12, 2017 11:31:44 PM",
+      "dateFinished": "Apr 12, 2017 11:31:54 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Create a constant in our graph.\nmy_first_tensor \u003d tf.constant(9)\n\n# What happens if we try to print our constant?\nprint my_first_tensor",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 11:33:27 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Tensor(\"Const_3:0\", shape\u003d(), dtype\u003dint32)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492024318977_-1264408716",
+      "id": "20170412-191158_1175513234",
+      "dateCreated": "Apr 12, 2017 7:11:58 PM",
+      "dateStarted": "Apr 12, 2017 11:33:27 PM",
+      "dateFinished": "Apr 12, 2017 11:33:27 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Note: See how the name changes each time?\n#       That\u0027s because a new constant is being added each time!",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 7:34:39 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1492025671186_-1243514092",
+      "id": "20170412-193431_1604876263",
+      "dateCreated": "Apr 12, 2017 7:34:31 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# We need to create a tensorflow session to run our computation graph.\nsess \u003d tf.Session()\n\n# Now we can fetch tensors from the graph.\nfetched_value \u003d sess.run(my_first_tensor)\n\n# This will actually print the fetched value.\nprint fetched_value",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 11:34:58 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn\u0027t compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.\nW tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn\u0027t compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.\nW tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn\u0027t compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.\nW tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn\u0027t compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.\nW tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn\u0027t compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.\nW tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn\u0027t compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.\n9\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492024437243_-289638893",
+      "id": "20170412-191357_1251943257",
+      "dateCreated": "Apr 12, 2017 7:13:57 PM",
+      "dateStarted": "Apr 12, 2017 11:34:58 PM",
+      "dateFinished": "Apr 12, 2017 11:34:58 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Create an \"add\" operation on our graph.\n# Use our first tensor and a hardcoded value as inputs.\nmy_operation \u003d tf.add(my_first_tensor, -10, name\u003d\"my_operation\")\n\n# This will not run the operation!\nprint my_operation",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 11:40:11 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Tensor(\"my_operation:0\", shape\u003d(), dtype\u003dint32)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492024391781_-320696285",
+      "id": "20170412-191311_883510432",
+      "dateCreated": "Apr 12, 2017 7:13:11 PM",
+      "dateStarted": "Apr 12, 2017 11:40:11 PM",
+      "dateFinished": "Apr 12, 2017 11:40:11 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Some operators can also be overloaded.\nmy_new_operation \u003d my_first_tensor - 10\n\n# Notice the output is similar, other than the custom name.\nprint my_new_operation",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 11:40:13 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Tensor(\"sub_2:0\", shape\u003d(), dtype\u003dint32)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492024618955_723633179",
+      "id": "20170412-191658_208731574",
+      "dateCreated": "Apr 12, 2017 7:16:58 PM",
+      "dateStarted": "Apr 12, 2017 11:40:13 PM",
+      "dateFinished": "Apr 12, 2017 11:40:13 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# We can run both of these and see that we get the same results.\nfetched_my_operation \u003d sess.run(my_operation)\nfetched_my_new_operation \u003d sess.run(my_new_operation)\n\n# Let\u0027s verify the results.\nprint \"my_operation:\", fetched_my_operation\nprint \"my_new_operation:\", fetched_my_new_operation",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 11:40:14 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "my_operation: -1\nmy_new_operation: -1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492024756186_-1134286967",
+      "id": "20170412-191916_299923939",
+      "dateCreated": "Apr 12, 2017 7:19:16 PM",
+      "dateStarted": "Apr 12, 2017 11:40:15 PM",
+      "dateFinished": "Apr 12, 2017 11:40:15 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Now we can play with TensorBoard!\n# We have to output the graph to a location for TensorBoard to read.\nwriter \u003d tf.summary.FileWriter(\"/tmp/logs/\", sess.graph)",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 11:40:43 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1492025013662_-1446951550",
+      "id": "20170412-192333_533305890",
+      "dateCreated": "Apr 12, 2017 7:23:33 PM",
+      "dateStarted": "Apr 12, 2017 11:40:43 PM",
+      "dateFinished": "Apr 12, 2017 11:40:43 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# We can open a terminal and start TensorBoard with the following commands.\n\n# \u003e docker ps\n# This will list the running container that we want. Let\u0027s say the name is \"unreal_tensorflow\".\n\n# \u003e docker exec -it unreal_tensorflow bash\n# This will allow us to SSH into the container.\n\n# \u003e tensorboard --logdir /tmp/logs/\n# This will start the application.",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 7:31:04 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1492025093918_-1138489677",
+      "id": "20170412-192453_1893400220",
+      "dateCreated": "Apr 12, 2017 7:24:53 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 7:46:11 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026371232_1613887939",
+      "id": "20170412-194611_1735905100",
+      "dateCreated": "Apr 12, 2017 7:46:11 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "1: TensorFlow Basics",
+  "id": "2CFBTU1JQ",
+  "angularObjects": {
+    "2CCU5VFV9:shared_process": [],
+    "2CCQU4SRK:shared_process": [],
+    "2CG3KAFYE:shared_process": [],
+    "2CE84G4ZS:shared_process": [],
+    "2CDEAXTKV:shared_process": [],
+    "2CFRZBTBP:shared_process": [],
+    "2CFDAKQV9:shared_process": [],
+    "2CEA3WHQN:shared_process": [],
+    "2CDY78H4Z:shared_process": [],
+    "2CF85PPRN:shared_process": [],
+    "2CEQ8MJW6:shared_process": [],
+    "2CDSGAGA5:shared_process": [],
+    "2CD6HWXZR:shared_process": [],
+    "2CE5MQW4M:shared_process": [],
+    "2CCR43KUU:shared_process": [],
+    "2CGK6U33X:shared_process": [],
+    "2CGGQ1YQ7:shared_process": [],
+    "2CEMRMJJ3:shared_process": [],
+    "2CDHEEVTM:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

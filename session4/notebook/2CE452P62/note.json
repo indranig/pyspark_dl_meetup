@@ -1,0 +1,123 @@
+{
+  "paragraphs": [
+    {
+      "text": "%pyspark\n\nimport numpy as np\n\n# Step 1: load data that we can train on from a CSV file, and convert to a numpy array\ndata \u003d np.loadtxt(\"/data-sets/credit_cleaned.csv\",delimiter\u003d\",\", skiprows\u003d1)\n\n\n# get input values\ninputs \u003d data[:,0:]\n# get output values\noutputs \u003d data[:,0]\n\n# Normalize the inputs so they have ~0 mean, and 1 Standard Deviation\ninputs \u003d (inputs - inputs.mean(axis\u003d0))/inputs.std(axis\u003d0)\n\n\nprint \"input shape is: \", inputs.shape\nprint \"output shape is: \", outputs.shape\n\n# Get the size of the input\ninput_vector_size \u003d inputs.shape[1]\noutput_size \u003d 1\n\n# Make the output vector a matrix\noutputs \u003d np.expand_dims(outputs,1)\n",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:34:48 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "input shape is:  (150000, 11)\noutput shape is:  (150000,)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492035633101_-2046002740",
+      "id": "20170412-021219_1631644414",
+      "dateCreated": "Apr 12, 2017 10:20:33 PM",
+      "dateStarted": "Apr 13, 2017 12:34:48 AM",
+      "dateFinished": "Apr 13, 2017 12:34:58 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\nimport tensorflow as tf\n\nnumber_of_hidden_neurons \u003d 5\nlearningrate \u003d 0.01\n\nmy_graph \u003d tf.Graph()\nwith my_graph.as_default():\n    \n    # We create \"None\" size placeholders to let us put variable sized \"Batches\" of data at a time\n    x \u003d tf.placeholder(\"float\", shape \u003d [None, input_vector_size])\n    y \u003d tf.placeholder(\"float\",shape \u003d[None,output_size])\n\n    # We\u0027re going to use an initializer to generate random values for our weights\n    initializer \u003d tf.contrib.layers.xavier_initializer()\n\n    # Hidden layer weights, connecting input to hidden neurons\n    hidden_weights \u003d tf.Variable(initializer(shape\u003d[input_vector_size,number_of_hidden_neurons]))\n    \n    # Output layer weights, connecting hidden neurons to output\n    output_weights \u003d tf.Variable(initializer(shape\u003d[number_of_hidden_neurons,output_size]))\n\n    # biases for the hidden neurons\n    bias \u003d tf.Variable(tf.zeros([output_size]))\n    \n    # biases for the output \n    bias1 \u003d tf.Variable(tf.zeros([number_of_hidden_neurons]))\n    \n    # Hidden layer logits and activation\n    hidden \u003d tf.nn.tanh(tf.matmul(x, hidden_weights) + bias1)\n    # Output layer \n    output \u003d (tf.matmul(hidden, output_weights) + bias)\n    \n    # Squared Error cost function\n    cost \u003d tf.reduce_mean(tf.pow((y-output),2))\n    \n    Optimizer \u003d tf.train.AdamOptimizer(learningrate).minimize(cost)\n    Init \u003d tf.initialize_all_variables()\n    \nsess \u003d tf.Session(graph\u003dmy_graph)\n\n# Step 7: initialize the necessary variables, in this case, w and b\nsess.run(Init)\n\n#Step 8: train the model\nfor i in range(20): # run multiple epochs/Interations of optimization\n    \n    #Session runs train_op to minimize loss\n    sess.run(Optimizer, feed_dict\u003d{x: inputs, y: outputs})\n    print sess.run(cost,feed_dict\u003d{x: inputs, y: outputs})\n    # Fetch the slope and bias of the line\n    #w_value, b_value \u003d sess.run([W, B])\n    \n    # Plot the line and the datapoints\n    #my_plot(w_value,b_value,inputs,outputs)\n\n# Step 9: output the values of w and b\n#w_value, b_value \u003d sess.run([W, B])\n\n#print \"slope \u003d \",w_value,\"bias \u003d \", b_value\n#my_plot(w_value,b_value,inputs,outputs)\nsess.close()",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:37:55 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "WARNING:tensorflow:From \u003cstdin\u003e:17: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.\nInstructions for updating:\nUse `tf.global_variables_initializer` instead.\nW tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn\u0027t compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.\nW tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn\u0027t compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.\nW tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn\u0027t compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.\nW tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn\u0027t compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.\nW tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn\u0027t compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.\nW tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn\u0027t compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.\n0.427233\n0.371484\n0.321349\n0.276768\n0.237569\n0.20347\n0.174114\n0.1491\n0.127987\n0.110276\n0.0954503\n0.0831051\n0.0729449\n0.0648088\n0.058596\n0.0539287\n0.0503434\n0.0474335\n0.0448821\n0.04242\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492035633111_-2035999268",
+      "id": "20170412-000459_2072961650",
+      "dateCreated": "Apr 12, 2017 10:20:33 PM",
+      "dateStarted": "Apr 13, 2017 12:37:55 AM",
+      "dateFinished": "Apr 13, 2017 12:37:57 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "dateUpdated": "Apr 12, 2017 10:20:33 PM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python"
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1492035633112_-2037923013",
+      "id": "20170412-010952_1540499488",
+      "dateCreated": "Apr 12, 2017 10:20:33 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "5: Neural Network with Real Data",
+  "id": "2CE452P62",
+  "angularObjects": {
+    "2CCU5VFV9:shared_process": [],
+    "2CCQU4SRK:shared_process": [],
+    "2CG3KAFYE:shared_process": [],
+    "2CE84G4ZS:shared_process": [],
+    "2CDEAXTKV:shared_process": [],
+    "2CFRZBTBP:shared_process": [],
+    "2CFDAKQV9:shared_process": [],
+    "2CEA3WHQN:shared_process": [],
+    "2CDY78H4Z:shared_process": [],
+    "2CF85PPRN:shared_process": [],
+    "2CEQ8MJW6:shared_process": [],
+    "2CDSGAGA5:shared_process": [],
+    "2CD6HWXZR:shared_process": [],
+    "2CE5MQW4M:shared_process": [],
+    "2CCR43KUU:shared_process": [],
+    "2CGK6U33X:shared_process": [],
+    "2CGGQ1YQ7:shared_process": [],
+    "2CEMRMJJ3:shared_process": [],
+    "2CDHEEVTM:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

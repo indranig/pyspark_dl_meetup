@@ -1,0 +1,106 @@
+---
+
+- hosts: localhost
+  tasks:
+  - name: create IAM role
+    iam_role:
+      name: meetup-session-6
+      state: present
+      assume_role_policy_document: "{{ lookup('file','policy.json') }}"
+      managed_policy: 
+        - arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess
+  - name: wait a bit for the IAM role to persist
+    pause:
+      seconds: 15
+  - name: create key pair
+    ec2_key:
+      region: "us-east-1"
+      name: meetup-session-6
+      state: present
+      key_material: "{{ item }}"
+    with_file: files/id_meetup.pub
+  - name: create security group
+    ec2_group:
+      region: "us-east-1"
+      name: meetup-session-6
+      description: meetup-session-6
+      state: present
+      rules:
+        - proto: all
+          group_name: meetup-session-6
+        - proto: TCP
+          from_port: 22
+          to_port: 22
+          cidr_ip: "{{ local_ip_address }}/32"
+        - proto: TCP
+          from_port: 30000
+          to_port: 30100
+          cidr_ip: "{{ local_ip_address }}/32"
+      rules_egress:
+        - proto: all
+          cidr_ip: 0.0.0.0/0
+  - name: create master launch configuration
+    ec2_lc:
+      region: "us-east-1"
+      name: meetup-session-6-k8s-master
+      state: present
+      key_name: meetup-session-6
+      image_id: ami-e8c1e793
+      security_groups:
+        - meetup-session-6
+      instance_profile_name: meetup-session-6
+      instance_type: m4.large
+      volumes:
+      - device_name: /dev/sda1
+        volume_size: 8
+        device_type: gp2
+        iops: 100
+        delete_on_termination: true
+        encrypted: false     
+  - name: create worker launch configuration
+    ec2_lc:
+      region: "us-east-1"
+      name: meetup-session-6-k8s-worker
+      state: present
+      key_name: meetup-session-6
+      image_id: ami-e8c1e793
+      security_groups:
+        - meetup-session-6
+      instance_profile_name: meetup-session-6
+      instance_type: c4.2xlarge
+      volumes:
+      - device_name: /dev/sda1
+        volume_size: 8
+        device_type: gp2
+        iops: 100
+        delete_on_termination: true
+        encrypted: false     
+  - name: create master auto scaling group
+    ec2_asg:
+      region: "us-east-1"
+      name: meetup-session-6-k8s-master
+      state: present
+      availability_zones:
+        - us-east-1a
+      launch_config_name: meetup-session-6-k8s-master
+      min_size: 0
+      max_size: 1
+      desired_capacity: 0
+      tags:
+        - Name: meetup-session-6-k8s-master
+        - Role: master
+  - name: create worker auto scaling group
+    ec2_asg:
+      region: "us-east-1"
+      name: meetup-session-6-k8s-worker
+      state: present
+      availability_zones:
+        - us-east-1a
+      launch_config_name: meetup-session-6-k8s-worker
+      min_size: 0
+      max_size: 1
+      desired_capacity: 0
+      tags:
+        - Name: meetup-session-6-k8s-worker
+        - Role: worker
+          

@@ -1,0 +1,452 @@
+{
+  "paragraphs": [
+    {
+      "text": "%python \n\nimport tensorflow as tf\nimport numpy as np",
+      "user": "anonymous",
+      "dateUpdated": "Oct 18, 2017 7:41:50 PM",
+      "config": {
+        "enabled": true,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1499197839267_1821485510",
+      "id": "20170704-162343_916977237",
+      "dateCreated": "Jul 4, 2017 7:50:39 PM",
+      "dateStarted": "Oct 18, 2017 7:41:50 PM",
+      "dateFinished": "Oct 18, 2017 7:41:50 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n# Let\u0027s load in some credit card data using Numpy\ndata \u003d np.loadtxt(\"/data-sets/credit_cleaned.csv\", delimiter\u003d\",\", skiprows\u003d1)",
+      "user": "anonymous",
+      "dateUpdated": "Oct 18, 2017 7:41:51 PM",
+      "config": {
+        "enabled": true,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1499197839269_1819177017",
+      "id": "20170704-162919_2062977336",
+      "dateCreated": "Jul 4, 2017 7:50:39 PM",
+      "dateStarted": "Oct 18, 2017 7:41:52 PM",
+      "dateFinished": "Oct 18, 2017 7:41:53 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n\n# We can use a seperate interpreter to show the columns of the dataset\nhead -n 1 /data-sets/credit_cleaned.csv",
+      "user": "anonymous",
+      "dateUpdated": "Oct 18, 2017 7:41:54 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "SeriousDlqin2yrs,RevolvingUtilizationOfUnsecuredLines,age,NumberOfTime30-59DaysPastDueNotWorse,DebtRatio,MonthlyIncome,NumberOfOpenCreditLinesAndLoans,NumberOfTimes90DaysLate,NumberRealEstateLoansOrLines,NumberOfTime60-89DaysPastDueNotWorse,NumberOfDependents\r\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508275009708_-833397518",
+      "id": "20171017-211649_1399321482",
+      "dateCreated": "Oct 17, 2017 9:16:49 PM",
+      "dateStarted": "Oct 18, 2017 7:41:54 PM",
+      "dateFinished": "Oct 18, 2017 7:41:55 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n# Split data into inputs and targets\ninputs \u003d data[:, 1:]\noutputs \u003d data[:, 0]",
+      "user": "anonymous",
+      "dateUpdated": "Oct 18, 2017 7:41:56 PM",
+      "config": {
+        "enabled": true,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1499197839270_1820331263",
+      "id": "20170704-163005_108734584",
+      "dateCreated": "Jul 4, 2017 7:50:39 PM",
+      "dateStarted": "Oct 18, 2017 7:41:56 PM",
+      "dateFinished": "Oct 18, 2017 7:41:56 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n# Let\u0027s look at the data!\nprint \"Input shape is: \", inputs.shape\nprint \"Output shape is: \", outputs.shape\n\nprint inputs[:3,:]\nprint outputs[:3]",
+      "user": "anonymous",
+      "dateUpdated": "Oct 18, 2017 7:42:27 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Input shape is:  (150000, 10)\nOutput shape is:  (150000,)\n[[  7.66126609e-01   4.50000000e+01   2.00000000e+00   8.02982129e-01\n    9.12000000e+03   1.30000000e+01   0.00000000e+00   6.00000000e+00\n    0.00000000e+00   2.00000000e+00]\n [  9.57151019e-01   4.00000000e+01   0.00000000e+00   1.21876201e-01\n    2.60000000e+03   4.00000000e+00   0.00000000e+00   0.00000000e+00\n    0.00000000e+00   1.00000000e+00]\n [  6.58180140e-01   3.80000000e+01   1.00000000e+00   8.51133750e-02\n    3.04200000e+03   2.00000000e+00   1.00000000e+00   0.00000000e+00\n    0.00000000e+00   0.00000000e+00]]\n[ 1.  0.  0.]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1508355668867_-863222316",
+      "id": "20171018-194108_1750630058",
+      "dateCreated": "Oct 18, 2017 7:41:08 PM",
+      "dateStarted": "Oct 18, 2017 7:42:27 PM",
+      "dateFinished": "Oct 18, 2017 7:42:27 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n# Normalize the inputs so they have ~0 mean, and 1 Standard Deviation\ninputs \u003d (inputs - inputs.mean(axis\u003d0)) / inputs.std(axis\u003d0)",
+      "user": "anonymous",
+      "dateUpdated": "Oct 18, 2017 7:42:51 PM",
+      "config": {
+        "enabled": true,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1499197839271_1819946514",
+      "id": "20170704-163553_982411541",
+      "dateCreated": "Jul 4, 2017 7:50:39 PM",
+      "dateStarted": "Oct 18, 2017 7:42:51 PM",
+      "dateFinished": "Oct 18, 2017 7:42:51 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n# Let\u0027s see what the data looks like after normalization\nprint \"Input shape is: \", inputs.shape\nprint \"Output shape is: \", outputs.shape\n\nprint inputs[:10,:]\nprint outputs[:10]",
+      "user": "anonymous",
+      "dateUpdated": "Oct 18, 2017 7:42:52 PM",
+      "config": {
+        "enabled": true,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Input shape is:  (150000, 10)\nOutput shape is:  (150000,)\n[[-0.02115001 -0.49385982  0.37659296  0.94722778  0.20957884  0.88365691\n  -0.06379344  4.40954554 -0.05785249  1.14052977]\n [-0.02038516 -0.83234222 -0.10041896 -0.96893183 -0.29622579 -0.86529678\n  -0.06379344 -0.90128301 -0.05785249  0.23720186]\n [-0.02158222 -0.96773518  0.138087   -1.07235692 -0.26193658 -1.25395316\n   0.17605556 -0.90128301 -0.05785249 -0.66612604]\n [-0.02328137 -1.50930703 -0.10041896 -1.21038812 -0.24192162 -0.6709686\n  -0.06379344 -0.90128301 -0.05785249 -0.66612604]\n [-0.02058501 -0.22307389  0.138087   -1.2416833   4.4350645  -0.28231222\n  -0.06379344 -0.01614492 -0.05785249 -0.66612604]\n [-0.02336398  1.46933812 -0.10041896 -0.25510946 -0.22640614 -1.05962497\n  -0.06379344 -0.01614492 -0.05785249  0.23720186]\n [-0.0229936   0.31849795 -0.10041896  1.5014994  -0.07900908 -0.08798403\n  -0.06379344  1.75413126 -0.05785249 -0.66612604]\n [-0.02119671 -0.9000387  -0.10041896 -0.72118134 -0.22640614 -0.08798403\n  -0.06379344 -0.90128301 -0.05785249 -0.66612604]\n [-0.02374927 -1.71239647 -0.10041896  1.5014994  -0.07900908 -1.25395316\n  -0.06379344 -0.90128301 -0.05785249 -0.66612604]\n [-0.02346011  0.31849795 -0.10041896  0.39387511  1.33941605  0.10634416\n  -0.06379344  2.63926936 -0.05785249  1.14052977]]\n[ 1.  0.  0.  0.  0.  0.  0.  0.  0.  0.]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1499197839272_1818022770",
+      "id": "20170704-163618_746830125",
+      "dateCreated": "Jul 4, 2017 7:50:39 PM",
+      "dateStarted": "Oct 18, 2017 7:42:52 PM",
+      "dateFinished": "Oct 18, 2017 7:42:52 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n# Let\u0027s get the size of the input vector\ninput_vector_size \u003d inputs.shape[1]",
+      "user": "anonymous",
+      "dateUpdated": "Oct 18, 2017 7:42:54 PM",
+      "config": {
+        "enabled": true,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1499197839273_1817638021",
+      "id": "20170704-175525_1061366780",
+      "dateCreated": "Jul 4, 2017 7:50:39 PM",
+      "dateStarted": "Oct 18, 2017 7:42:54 PM",
+      "dateFinished": "Oct 18, 2017 7:42:54 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n# We need to reformat the data into and nx1 matrix (same thing we did in the previous notebook)\ntargets \u003d np.expand_dims(outputs, 1)",
+      "user": "anonymous",
+      "dateUpdated": "Oct 18, 2017 7:42:56 PM",
+      "config": {
+        "enabled": true,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1499197839274_1818792268",
+      "id": "20170704-175754_342472783",
+      "dateCreated": "Jul 4, 2017 7:50:39 PM",
+      "dateStarted": "Oct 18, 2017 7:42:56 PM",
+      "dateFinished": "Oct 18, 2017 7:42:56 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n# \u003d\u003d\u003d Let\u0027s build the graph first\n\n# We will specify some hyper-parameters\nnumber_of_hidden_neurons \u003d 5\n\n# As well as some extra information\noutput_size \u003d 1",
+      "user": "anonymous",
+      "dateUpdated": "Oct 18, 2017 7:42:58 PM",
+      "config": {
+        "enabled": true,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1499197839275_1818407519",
+      "id": "20170704-175903_1194449203",
+      "dateCreated": "Jul 4, 2017 7:50:39 PM",
+      "dateStarted": "Oct 18, 2017 7:42:58 PM",
+      "dateFinished": "Oct 18, 2017 7:42:58 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n# \u003d\u003d\u003d We build the graph here!\nmy_graph \u003d tf.Graph()\n\nwith my_graph.as_default():\n    \n    # We create \"None\" size placeholders to let us put variable sized \"Batches\" of data at a time\n    x \u003d tf.placeholder(\"float\", shape \u003d [None, input_vector_size])\n    y \u003d tf.placeholder(\"float\", shape \u003d[None, output_size])\n\n    # We\u0027re going to use an initializer to generate random values for our weights\n    initializer \u003d tf.contrib.layers.xavier_initializer()\n\n    # Hidden layer weights, connecting input to hidden neurons\n    hidden_weights \u003d tf.Variable(initializer(shape\u003d[input_vector_size, number_of_hidden_neurons]))\n    \n    # Output layer weights, connecting hidden neurons to output\n    output_weights \u003d tf.Variable(initializer(shape\u003d[number_of_hidden_neurons, output_size]))\n\n    # Biases for the hidden neurons\n    bias \u003d tf.Variable(tf.zeros([output_size]))\n    \n    # Biases for the output \n    bias1 \u003d tf.Variable(tf.zeros([number_of_hidden_neurons]))\n    \n    # Hidden layer logits and activation\n    hidden \u003d tf.nn.tanh(tf.matmul(x, hidden_weights) + bias1)\n    \n    # Output layer \n    output_layer \u003d (tf.matmul(hidden, output_weights) + bias)\n    \n    # Squared Error function\n    error \u003d tf.reduce_mean(tf.pow((y-output_layer), 2))\n    \n    # We will use Adam Optimizer for network optimization\n    optimizer \u003d tf.train.AdamOptimizer().minimize(error)\n    \n    # Our initialization operation\n    init \u003d tf.initialize_all_variables()",
+      "user": "anonymous",
+      "dateUpdated": "Oct 18, 2017 7:43:01 PM",
+      "config": {
+        "enabled": true,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\n\n\nWARNING:tensorflow:From \u003cstdin\u003e:14: initialize_all_variables (from tensorflow.python.ops.variables) is deprecated and will be removed after 2017-03-02.\nInstructions for updating:\nUse `tf.global_variables_initializer` instead.\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1499197839276_1816483774",
+      "id": "20170704-180035_651422999",
+      "dateCreated": "Jul 4, 2017 7:50:39 PM",
+      "dateStarted": "Oct 18, 2017 7:43:01 PM",
+      "dateFinished": "Oct 18, 2017 7:43:01 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n# We create our sessions\nsess \u003d tf.Session(graph\u003dmy_graph)\n\n# Make sure to run the initialization\nsess.run(init)\n\n# Train loop for the model\nfor i in range(20):\n    \n    # Session runs train_op to minimize loss\n    sess.run(optimizer, feed_dict\u003d{x: inputs, y: targets})\n    print sess.run(error, feed_dict\u003d{x: inputs, y: targets})\n    \nsess.close()",
+      "user": "anonymous",
+      "dateUpdated": "Oct 18, 2017 7:44:24 PM",
+      "config": {
+        "enabled": true,
+        "editorMode": "ace/mode/python",
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "colWidth": 12.0
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "0.529653\n0.524324\n0.519034\n0.513789\n0.508588\n0.50343\n0.498315\n0.493245\n0.488219\n0.483238\n0.4783\n0.473409\n0.468561\n0.463759\n0.458997\n0.454285\n0.449616\n0.444989\n0.440407\n0.43587\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1499197839277_1816099025",
+      "id": "20170704-183329_1722924262",
+      "dateCreated": "Jul 4, 2017 7:50:39 PM",
+      "dateStarted": "Oct 18, 2017 7:44:24 PM",
+      "dateFinished": "Oct 18, 2017 7:44:25 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n",
+      "user": "anonymous",
+      "dateUpdated": "Oct 17, 2017 9:23:46 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1499199553160_-1164931640",
+      "id": "20170704-201913_1835531595",
+      "dateCreated": "Jul 4, 2017 8:19:13 PM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "3.2: Neural Network with Real Data",
+  "id": "2CM5XAYR8",
+  "angularObjects": {
+    "2CWF9VUB4:shared_process": [],
+    "2CVCMSYNY:shared_process": [],
+    "2CYA7KE1C:shared_process": [],
+    "2CV19CQJE:shared_process": [],
+    "2CWC7RQDF:shared_process": [],
+    "2CXNEB9JP:shared_process": [],
+    "2CYPFGMFK:shared_process": [],
+    "2CXREG2ZM:shared_process": [],
+    "2CXYHYXKY:shared_process": [],
+    "2CUUWUXYF:shared_process": [],
+    "2CUSZPV3P:shared_process": [],
+    "2CXJTHE72:shared_process": [],
+    "2CWMXCK9D:shared_process": [],
+    "2CYBVT361:shared_process": [],
+    "2CYA18PJV:shared_process": [],
+    "2CYKEV26S:shared_process": [],
+    "2CVUQF7DS:shared_process": [],
+    "2CY62YE2U:shared_process": [],
+    "2CYEEW5V8:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

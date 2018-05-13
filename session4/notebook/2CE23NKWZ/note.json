@@ -1,0 +1,358 @@
+{
+  "paragraphs": [
+    {
+      "text": "%pyspark\n\nimport tensorflow as tf\nimport numpy as np\nimport time\nimport matplotlib.pyplot as plt\n\nfrom matplotlib import cm\nfrom matplotlib.ticker import LinearLocator, FormatStrFormatter",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:07:22 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026399330_1482486060",
+      "id": "20170412-194639_604603605",
+      "dateCreated": "Apr 12, 2017 7:46:39 PM",
+      "dateStarted": "Apr 13, 2017 12:07:22 AM",
+      "dateFinished": "Apr 13, 2017 12:07:22 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# We will use Matplotlib and Numpy for the next little bit.",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 7:51:38 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026654711_-1012425022",
+      "id": "20170412-195054_1563618996",
+      "dateCreated": "Apr 12, 2017 7:50:54 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Let\u0027s load in some data using Numpy.\ndata \u003d np.loadtxt(\"/data-sets/line_data.csv\", delimiter\u003d\",\", skiprows\u003d1)",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:07:48 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026433651_741905724",
+      "id": "20170412-194713_75759970",
+      "dateCreated": "Apr 12, 2017 7:47:13 PM",
+      "dateStarted": "Apr 13, 2017 12:07:48 AM",
+      "dateFinished": "Apr 13, 2017 12:07:48 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# We will split the data into \"inputs\" and \"targets\".\n\n# The first (index 0) column is our \"X\" or \"inputs\".\ninputs \u003d data[:,0]\n\n# The second (index 1) column is our \"Y\" or \"targets\".\noutputs \u003d data[:,1]",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:08:51 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026497828_1325847285",
+      "id": "20170412-194817_2048564368",
+      "dateCreated": "Apr 12, 2017 7:48:17 PM",
+      "dateStarted": "Apr 13, 2017 12:08:51 AM",
+      "dateFinished": "Apr 13, 2017 12:08:51 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Close the current plot to insure a clean slate.\nplt.close()\n\n# Zeppelin specific command to update the plot rather than draw a new one each time.\nz.configure_mpl(angular\u003dTrue, close\u003dFalse)\n\n# Clear the plot.\nplt.clf()\n\n# Plot the input vs output.\nplt.plot(inputs, outputs, \".\")\n\n# Display the plot.\nplt.show()",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:09:22 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003cdiv style\u003d\u0027width:auto;height:auto\u0027\u003e\u003cimg src\u003d{{figure_7b3b3cbcb39f4431a2c658b323b05bd1}} style\u003d\u0027width\u003dauto;height:auto\u0027\u003e\u003cdiv\u003e\n"
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026620266_-755458729",
+      "id": "20170412-195020_1238873821",
+      "dateCreated": "Apr 12, 2017 7:50:20 PM",
+      "dateStarted": "Apr 13, 2017 12:09:22 AM",
+      "dateFinished": "Apr 13, 2017 12:09:23 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Let\u0027s create a function to help us display data throughout this notebook.\ndef my_plot(m, b, data_inputs, data_outputs):\n    \n    # Calculate the test values.\n    test_values \u003d np.array([data_inputs.min(), data_inputs.max()])\n    \n    # Calculate the test outputs.\n    test_outputs \u003d test_values * m + b\n    \n    # Clear the plot.\n    plt.clf()\n    \n    # Plot the input vs output.\n    plt.plot(data_inputs, data_outputs, \".\")\n    plt.plot(test_values, test_outputs)\n    \n    # Display the plot.\n    plt.show()",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:10:00 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": ""
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026834528_-676879653",
+      "id": "20170412-195354_1074111010",
+      "dateCreated": "Apr 12, 2017 7:53:54 PM",
+      "dateStarted": "Apr 13, 2017 12:10:00 AM",
+      "dateFinished": "Apr 13, 2017 12:10:01 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n# Let\u0027s actually look at some data inside of TensorFlow!\n\n# Create a new graph.\nmy_graph \u003d tf.Graph()\n\n# Use our graph as the default by wrapping it in a \"when\" block.\nwith my_graph.as_default():\n    \n    # Create placeholders for inputs \"X\" and labels \"Y\"\n    X \u003d tf.placeholder(tf.float32, name\u003d\"X\")\n    Y \u003d tf.placeholder(tf.float32, name\u003d\"Y\")\n    \n    # Create weights \"W\" and biases \"B\".\n    # We initialize them to 0.\n    W \u003d tf.Variable(0.0, name\u003d\"weights\")\n    B \u003d tf.Variable(0.0, name\u003d\"bias\")\n    \n    # Create an operation that fits \"Y\" to \"X\".\n    Y_predicted \u003d X * W + B\n    \n    # Use the square error as the loss function for the model.\n    Loss \u003d tf.reduce_mean(tf.square(Y - Y_predicted, name\u003d\"loss\"))\n    \n    # Use the built-in gradient descent optimizer.\n    # We set the learning rate to 0.0001 and tell TensorFlow to minimize for the loss.\n    Optimizer \u003d tf.train.GradientDescentOptimizer(learning_rate\u003d0.0001).minimize(Loss)\n    \n    # Create an operation that initializes the variables.\n    Init \u003d tf.global_variables_initializer()\n    \n    \n# Create the session using our graph.\nsess \u003d tf.Session(graph\u003dmy_graph)\n\n# Run the operation that initializes the variables.\nsess.run(Init)\n\n# Start a loop to run multiple sessions of the graph.\n# This will allow for us to start training the model.\n# These are known as epochs.\nfor i in range(20):\n    \n    # Session runs train_op to minimize loss.\n    sess.run(Optimizer, feed_dict\u003d{X: inputs, Y: outputs})\n    \n    # Fetch the slope and bias of the line.\n    w_value, b_value \u003d sess.run([W, B])\n    \n    # Plot the line and the datapoints.\n    my_plot(w_value, b_value, inputs, outputs)\n\n# Output the values of w and b.\nw_value, b_value \u003d sess.run([W, B])\n\n# Display the final slope and biases.\nprint \"slope \u003d \", w_value, \"bias \u003d \", b_value\n\n# Plot the final values.\nmy_plot(w_value, b_value, inputs, outputs)\n\n# Close the session for cleanup.\nsess.close()",
+      "user": "anonymous",
+      "dateUpdated": "Apr 13, 2017 12:16:06 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": "slope \u003d  1.39673 bias \u003d  0.0947596\n"
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          },
+          {
+            "type": "ANGULAR",
+            "data": ""
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1492026999269_1336170920",
+      "id": "20170412-195639_1501288280",
+      "dateCreated": "Apr 12, 2017 7:56:39 PM",
+      "dateStarted": "Apr 13, 2017 12:16:06 AM",
+      "dateFinished": "Apr 13, 2017 12:17:04 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "Apr 12, 2017 7:58:58 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1492027138366_1349083817",
+      "id": "20170412-195858_2120372289",
+      "dateCreated": "Apr 12, 2017 7:58:58 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "3: TensorFlow Optimizers",
+  "id": "2CE23NKWZ",
+  "angularObjects": {
+    "2CCU5VFV9:shared_process": [],
+    "2CCQU4SRK:shared_process": [],
+    "2CG3KAFYE:shared_process": [
+      {
+        "name": "figure_7b3b3cbcb39f4431a2c658b323b05bd1",
+        "object": "data:image/png;base64,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\u003d",
+        "noteId": "2CE23NKWZ"
+      }
+    ],
+    "2CE84G4ZS:shared_process": [],
+    "2CDEAXTKV:shared_process": [],
+    "2CFRZBTBP:shared_process": [],
+    "2CFDAKQV9:shared_process": [],
+    "2CEA3WHQN:shared_process": [],
+    "2CDY78H4Z:shared_process": [],
+    "2CF85PPRN:shared_process": [],
+    "2CEQ8MJW6:shared_process": [],
+    "2CDSGAGA5:shared_process": [],
+    "2CD6HWXZR:shared_process": [],
+    "2CE5MQW4M:shared_process": [],
+    "2CCR43KUU:shared_process": [],
+    "2CGK6U33X:shared_process": [],
+    "2CGGQ1YQ7:shared_process": [],
+    "2CEMRMJJ3:shared_process": [],
+    "2CDHEEVTM:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

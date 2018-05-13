@@ -1,0 +1,79 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: zeppelin
+spec:
+  type: NodePort
+  ports:
+  - name: admin-http
+    port: 8080
+    nodePort: 30001
+  selector:
+    name: zeppelin
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tensorboard
+spec:
+  type: NodePort
+  ports:
+  - name: admin-http
+    port: 6006
+    nodePort: 30002
+  selector:
+    name: zeppelin
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zeppelin-application
+spec:
+  type: NodePort 
+  ports:
+  - name: admin-http
+    port: 4040
+    nodePort: 30003
+  selector:
+    name: zeppelin
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: zeppelin
+  labels:
+    app: zeppelin
+spec:
+  replicas: 1
+  selector:
+    name: zeppelin
+  template:
+    metadata:
+      labels:
+        name: zeppelin
+    spec:
+      containers:
+      - name: zeppelin
+        image: meetup-zeppelin
+        imagePullPolicy: Never
+        env:
+        - name: GET_HOSTS_FROM
+          value: env
+        - name: ZEPPELIN_PORT
+          value: "8080"
+        volumeMounts:
+        - mountPath: /zeppelin-0.7.2-bin-all/notebook
+          name: notebook
+        - mountPath: /data-sets
+          name: data
+        ports:
+        - containerPort: 8080
+        - containerPort: 4040
+        - containerPort: 6006
+      volumes:
+        - name: notebook
+          hostPath:
+            path: /var/lib/zeppelin/notebook
+        - name: data
+          hostPath:
+            path: /var/lib/zeppelin/data-sets
